@@ -10,11 +10,13 @@ public class Tile {
         this.Terrain = Terrain;
     }
 
-    public TERRAIN getTerrain() {
+    public TERRAIN getTerrain()
+    {
         return Terrain;
     }
 
-    public Character getCharacter() {
+    public Character getCharacter()
+    {
         return Character;
     }
     public void setCharacter(Character Character)

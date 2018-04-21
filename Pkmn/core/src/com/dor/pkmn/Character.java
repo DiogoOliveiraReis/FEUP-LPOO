@@ -15,6 +15,10 @@ public class Character {
 
     public boolean move(int dx, int dy)
     {
+        if (x+dx >= map.getX() || x+dx < 0 || y+dy >= map.getY() || y+dy < 0)
+        {
+            return false;
+        }
         if (map.getTile(x+dx, y+dy).getCharacter() != null)
         {
             return false;

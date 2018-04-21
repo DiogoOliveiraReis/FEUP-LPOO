@@ -11,39 +11,47 @@ public class Pkmn extends ApplicationAdapter {
 	private TileMap map;
 	private PlayerController playerController;
 	private Player player;
+	private Camera camera;
 	SpriteBatch batch;
 	Texture img;
 	Texture img2;
 	
 	@Override
-	public void create () {
+	public void create ()
+	{
 		batch = new SpriteBatch();
 		img = new Texture("player_south_stand.png");
 		img2 = new Texture("grass.png");
-		map = new TileMap(10, 10);
-		player = new Player(map,1, 1);
+		map = new TileMap(15, 15);
+		player = new Player(map,0, 0);
+		camera = new Camera();
 		playerController = new PlayerController(player);
 	}
 
 	@Override
-	public void render () {
+	public void render ()
+	{
+		camera.update(player.getX()+0.5f,player.getY()+0.5f);
+		batch.begin();
+		float startingX = Gdx.graphics.getWidth()/2 - camera.getCameraX()*Settings.SCALED_TILE_SIZE;
+		float startingY = Gdx.graphics.getHeight()/2 - camera.getCameraY()*Settings.SCALED_TILE_SIZE;
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
 		for (int i = 0; i < map.getX(); i++)
 		{
 			for (int j = 0; j < map.getY(); j++)
 			{
-				batch.draw(img2,i*25,j*25);
+				batch.draw(img2,startingX+i*Settings.SCALED_TILE_SIZE,startingY+j*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
 			}
 		}
-		batch.draw(img, player.getX()*25, player.getY()*25);
+		batch.draw(img, startingX+player.getX()*Settings.SCALED_TILE_SIZE, startingY+player.getY()*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
 		Gdx.input.setInputProcessor(playerController);
 		batch.end();
-
 	}
+
 	@Override
-	public void dispose () {
+	public void dispose ()
+	{
 		batch.dispose();
 		img.dispose();
 	}
