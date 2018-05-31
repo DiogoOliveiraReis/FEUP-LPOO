@@ -7,6 +7,7 @@ import com.badlogic.gdx.InputAdapter;
 public class PlayerController extends InputAdapter{
 
     private Player player;
+    private boolean brockDialog = false;
 
     public PlayerController(Player P)
     {
@@ -31,6 +32,26 @@ public class PlayerController extends InputAdapter{
         {
             player.move(-1,0);
         }
+        if (keycode == Input.Keys.Z)
+        {
+            if (player.getX() == 3 && player.getY() == 2)
+            {
+                brockDialog = true;
+            }
+            else brockDialog = false;
+        }
         return false;
+    }
+    public boolean getBrockDialog()
+    {
+        return brockDialog;
+    }
+    public boolean resetBrockDialog()
+    {
+        if (brockDialog)
+        {
+            brockDialog = false;
+        }
+        return brockDialog;
     }
 }

@@ -2,19 +2,26 @@ package com.dor.pkmn;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.dor.controller.PlayerController;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.Color;
 
 public class Pkmn extends ApplicationAdapter {
 	private TileMap map;
 	private PlayerController playerController;
 	private Player player;
+	private Character brock;
 	private Camera camera;
 	SpriteBatch batch;
 	Texture img;
 	Texture img2;
+	Texture brock_img;
+	private BitmapFont font;
+
 	
 	@Override
 	public void create ()
@@ -22,10 +29,14 @@ public class Pkmn extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		img = new Texture("player_south_stand.png");
 		img2 = new Texture("grass.png");
+		brock_img = new Texture("brock.png");
 		map = new TileMap(15, 15);
-		player = new Player(map,0, 0);
+		player = new Player(map,2, 2);
+		brock = new Character(map,3,3);
 		camera = new Camera();
 		playerController = new PlayerController(player);
+		font = new BitmapFont();
+		font.setColor(Color.WHITE);
 	}
 
 	@Override
@@ -45,7 +56,16 @@ public class Pkmn extends ApplicationAdapter {
 			}
 		}
 		batch.draw(img, startingX+player.getX()*Settings.SCALED_TILE_SIZE, startingY+player.getY()*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
+		batch.draw(brock_img, startingX+brock.getX()*Settings.SCALED_TILE_SIZE, startingY+brock.getY()*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
 		Gdx.input.setInputProcessor(playerController);
+		if (playerController.getBrockDialog())
+		{
+			font.draw(batch, "O Brock Fala...", startingX+player.getX()*Settings.SCALED_TILE_SIZE, 200);
+			if (playerController.keyDown(Input.Keys.Z))
+			{
+				playerController.resetBrockDialog();
+			}
+		}
 		batch.end();
 	}
 
