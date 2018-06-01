@@ -3,7 +3,7 @@ package com.dor.pkmn.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.Files;
-import com.dor.pkmn.Pkmn;
+import com.dor.screen.Pkmn;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.dor.pkmn.Pkmn;
+import com.dor.screen.Pkmn;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

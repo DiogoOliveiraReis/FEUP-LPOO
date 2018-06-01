@@ -1,6 +1,7 @@
 package com.dor.pkmn;
 
-public class Character {
+public class Character
+{
 
     private TileMap map;
     private int x;
@@ -42,5 +43,10 @@ public class Character {
     {
         this.x = x;
         this.y = y;
+    }
+
+    void getPokemons()
+    {
+
     }
 }

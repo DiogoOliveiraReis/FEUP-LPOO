@@ -1,4 +1,4 @@
-package com.dor.pkmn;
+package com.dor.screen;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -6,11 +6,18 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.dor.battle.Pokemon;
 import com.dor.controller.PlayerController;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.Color;
+import com.dor.pkmn.Camera;
 
-public class Pkmn extends ApplicationAdapter {
+import com.dor.pkmn.Player;
+import com.dor.pkmn.Settings;
+import com.dor.pkmn.TileMap;
+import com.dor.pkmn.Character;
+public class Pkmn extends ApplicationAdapter
+{
 	private TileMap map;
 	private PlayerController playerController;
 	private Player player;
@@ -20,8 +27,9 @@ public class Pkmn extends ApplicationAdapter {
 	Texture img;
 	Texture img2;
 	Texture brock_img;
+	Texture blastew_img;
 	private BitmapFont font;
-
+    private Pokemon blastew;
 	
 	@Override
 	public void create ()
@@ -30,6 +38,7 @@ public class Pkmn extends ApplicationAdapter {
 		img = new Texture("player_south_stand.png");
 		img2 = new Texture("grass.png");
 		brock_img = new Texture("brock.png");
+		blastew_img = new Texture("blastew.png");
 		map = new TileMap(15, 15);
 		player = new Player(map,2, 2);
 		brock = new Character(map,3,3);
@@ -37,6 +46,7 @@ public class Pkmn extends ApplicationAdapter {
 		playerController = new PlayerController(player);
 		font = new BitmapFont();
 		font.setColor(Color.WHITE);
+		blastew = new Pokemon(player, "Blastew");
 	}
 
 	@Override
@@ -44,7 +54,7 @@ public class Pkmn extends ApplicationAdapter {
 	{
 		camera.update(player.getX()+0.5f,player.getY()+0.5f);
 		batch.begin();
-		float startingX = Gdx.graphics.getWidth()/2 - camera.getCameraX()*Settings.SCALED_TILE_SIZE;
+		float startingX = Gdx.graphics.getWidth()/2 - camera.getCameraX()* Settings.SCALED_TILE_SIZE;
 		float startingY = Gdx.graphics.getHeight()/2 - camera.getCameraY()*Settings.SCALED_TILE_SIZE;
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
