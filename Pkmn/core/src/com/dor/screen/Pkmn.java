@@ -16,6 +16,7 @@ import com.dor.pkmn.Player;
 import com.dor.pkmn.Settings;
 import com.dor.pkmn.TileMap;
 import com.dor.pkmn.Character;
+
 public class Pkmn extends ApplicationAdapter
 {
 	private TileMap map;
