@@ -1,5 +1,6 @@
 package com.dor.screen;
 
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.dor.controller.PlayerController;
 import com.dor.screen.GameScreen;
 import com.dor.controller.PlayerController;
+
 
 public class Main extends Game
 {
@@ -29,6 +31,7 @@ public class Main extends Game
         this.setScreen(new GameScreen(this));
     }
 
+
     public void gotoContinueScreen()
     {
 
@@ -39,10 +42,12 @@ public class Main extends Game
         System.exit(0);
     }
 
+
     public void switchToBattle()
     {
 
     }
+
 
     @Override
     public void render ()

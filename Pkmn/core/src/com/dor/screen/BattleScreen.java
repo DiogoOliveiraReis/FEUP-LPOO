@@ -18,10 +18,12 @@ import com.dor.pkmn.PkmnSettings;
 
 public class BattleScreen implements Screen
 {
+
     final Main game;
     private Stage stage;
     SpriteBatch batch;
     private BitmapFont font;
+
 
     public BattleScreen(final Main game)
     {
@@ -49,17 +51,20 @@ public class BattleScreen implements Screen
         stage.draw();
     }
 
+
     @Override
     public void resize(int width, int height)
     {
         game.screenPort.update(width,height);
     }
 
+
     @Override
     public void pause()
     {
 
     }
+
 
     @Override
     public void resume()
@@ -72,6 +77,7 @@ public class BattleScreen implements Screen
     {
 
     }
+
 
     @Override
     public void dispose()

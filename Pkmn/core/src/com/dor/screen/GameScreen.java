@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 public class GameScreen implements Screen
 {
+
     final Main game;
     private Stage stage;
     private TileMap map;

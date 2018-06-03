@@ -2,11 +2,13 @@ package com.dor.pkmn;
 
 public class Character
 {
+
     private Character npc;
     private TileMap map;
     private int x;
     private int y;
     private char oriention;
+
 
     public Character(TileMap map, int x, int y)
     {
@@ -15,6 +17,7 @@ public class Character
         this.y = y;
         this.oriention = 's';
     }
+
 
     public boolean move(int dx, int dy)
     {
@@ -43,6 +46,7 @@ public class Character
         return true;
     }
 
+
     public int getX()
     {
         return x;
@@ -52,9 +56,11 @@ public class Character
         return y;
     }
 
+
     public void setCharacter(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
+
 }

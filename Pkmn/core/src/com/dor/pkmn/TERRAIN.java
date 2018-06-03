@@ -1,6 +1,9 @@
 package com.dor.pkmn;
 
-public enum TERRAIN {
+public enum TERRAIN
+{
+
     GRASS
     ;
+
 }

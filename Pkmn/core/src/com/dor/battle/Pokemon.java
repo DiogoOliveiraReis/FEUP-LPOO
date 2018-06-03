@@ -8,6 +8,7 @@ import com.dor.pkmn.Character;
 
 public class Pokemon
 {
+
     private Character trainer;
     private String name;
     private int level;
@@ -22,4 +23,5 @@ public class Pokemon
         currentHitpoints = 100;
         this.moves = movs;
     }
+
 }

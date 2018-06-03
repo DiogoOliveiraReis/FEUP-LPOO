@@ -1,12 +1,15 @@
 package com.dor.pkmn;
 
-import com.dor.battle.Pokemon;
 
+import com.dor.battle.Pokemon;
 import java.util.ArrayList;
+
 
 public class Player extends Character {
 
+
     private ArrayList<Pokemon> pokemons;
+
 
     public Player(TileMap map, int x, int y)
     {
@@ -15,6 +18,7 @@ public class Player extends Character {
         pokemons = new ArrayList<Pokemon>(6);
     }
 
+
     public void addPokemon(Pokemon p){
         if(pokemons.size() < 6){
             pokemons.add(p);
@@ -22,7 +26,9 @@ public class Player extends Character {
         return;
     }
 
+
     public ArrayList<Pokemon> getPokemons() {
         return pokemons;
     }
+
 }

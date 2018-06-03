@@ -1,6 +1,8 @@
 package com.dor.screen;
 
+
 import com.badlogic.gdx.Gdx;
+
 
 public class ScreenSettings
 {
@@ -13,3 +15,5 @@ public class ScreenSettings
     public static final int col_width = screenWidth/8;
     public static final int row_height = screenHeight/8;
 }
+
+

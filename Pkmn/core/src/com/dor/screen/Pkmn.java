@@ -19,6 +19,7 @@ import com.dor.pkmn.Character;
 
 import java.util.ArrayList;
 
+
 public class Pkmn extends ApplicationAdapter
 {
 	/*
@@ -99,13 +100,18 @@ public class Pkmn extends ApplicationAdapter
 				}
 			}
 		}
+
 		batch.draw(tree, startingX+5 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
 		batch.draw(tree, startingX+25 * PkmnSettings.SCALED_TILE_SIZE,  startingY+25 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+
 		batch.draw(tree, startingX+25 * PkmnSettings.SCALED_TILE_SIZE,  startingY+20 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
 		batch.draw(tree, startingX+38 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+
 		batch.draw(house, startingX+15 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
 		batch.draw(house, startingX+35 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+
 		batch.draw(house, startingX+10 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+
 		batch.draw(house, startingX+10 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
 		batch.draw(img, startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+player.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 		batch.draw(brock_img, startingX+brock.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+brock.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
@@ -122,6 +128,8 @@ public class Pkmn extends ApplicationAdapter
 		batch.end();
 	}
 
+
+
 	@Override
 	public void dispose ()
 	{
@@ -130,3 +138,4 @@ public class Pkmn extends ApplicationAdapter
 	}
 	*/
 }
+

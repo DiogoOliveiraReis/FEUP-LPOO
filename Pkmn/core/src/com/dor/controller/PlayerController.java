@@ -9,15 +9,18 @@ import com.dor.screen.BattleScreen;
 
 public class PlayerController extends InputAdapter{
 
+
     private Player player;
     private boolean brockDialog = false;
     private boolean npc1Dialog = false;
     private boolean pokemonBattle = false;
 
+
     public PlayerController(Player P)
     {
         this.player = P;
     }
+
 
     public boolean keyDown(int keycode)
     {
@@ -67,10 +70,12 @@ public class PlayerController extends InputAdapter{
         }
         return false;
     }
+
     public boolean getBrockDialog()
     {
         return brockDialog;
     }
+
     public boolean resetBrockDialog()
     {
         if (brockDialog)
@@ -79,6 +84,7 @@ public class PlayerController extends InputAdapter{
         }
         return brockDialog;
     }
+
     public boolean getNPC1Dialog()
     {
         return npc1Dialog;
@@ -91,10 +97,12 @@ public class PlayerController extends InputAdapter{
         }
         return npc1Dialog;
     }
+
     public boolean getPokemonBattle()
     {
         return pokemonBattle;
     }
+
     public boolean resetPokemonBattle()
     {
         if (pokemonBattle)
@@ -103,4 +111,5 @@ public class PlayerController extends InputAdapter{
         }
         return pokemonBattle;
     }
+
 }

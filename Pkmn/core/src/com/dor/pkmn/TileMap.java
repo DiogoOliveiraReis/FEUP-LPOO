@@ -17,19 +17,23 @@ public class TileMap {
         }
     }
 
-    public Tile getTile(int x, int y) {
+    public Tile getTile(int x, int y)
+    {
         return Tiles[x][y];
     }
 
-    public void setTile(Tile Tile, int x, int y) {
+    public void setTile(Tile Tile, int x, int y)
+    {
         Tiles[x][y] = Tile;
     }
 
-    public int getX() {
+    public int getX()
+    {
         return x;
     }
 
-    public int getY() {
+    public int getY()
+    {
         return y;
     }
 }
