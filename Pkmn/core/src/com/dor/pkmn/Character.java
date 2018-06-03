@@ -18,6 +18,12 @@ public class Character
 
     public boolean move(int dx, int dy)
     {
+        /*
+        if ((x == 2 && y == 3) || (x == 4 && y == 3) || (x == 3 && y == 2) || (x == 3 && y == 4))
+        {
+            return false;
+        }
+        */
         if (x+dx >= map.getX() || x+dx > 48)
         {
             return false;

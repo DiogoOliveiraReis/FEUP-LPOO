@@ -10,6 +10,7 @@ import com.dor.screen.Pkmn;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "Pkmn";
 		config.addIcon("icon.png", Files.FileType.Internal);
 		config.height = 720;
 		config.width = 1280;

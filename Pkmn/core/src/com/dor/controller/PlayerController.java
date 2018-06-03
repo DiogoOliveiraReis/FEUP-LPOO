@@ -11,6 +11,7 @@ public class PlayerController extends InputAdapter{
 
     private Player player;
     private boolean brockDialog = false;
+    private boolean npc1Dialog = false;
     private boolean pokemonBattle = false;
 
     public PlayerController(Player P)
@@ -38,18 +39,29 @@ public class PlayerController extends InputAdapter{
         }
         if (keycode == Input.Keys.Z)
         {
-            if (player.getX() == 3 && player.getY() == 2)
+            if ((player.getX() == 3 && player.getY() == 2))
             {
                 brockDialog = true;
             }
-            else brockDialog = false;
+            else {
+                brockDialog = false;
+            }
+        }
+        if (keycode == Input.Keys.Z)
+        {
+            if ((player.getX() == 35 && player.getY() == 4))
+            {
+                npc1Dialog = true;
+            }
+            else {
+                npc1Dialog = false;
+            }
         }
         if (keycode == Input.Keys.X)
         {
             if (player.getX() == 38 && player.getY() == 5)
             {
                 pokemonBattle = true;
-
             }
             else pokemonBattle = false;
         }
@@ -66,6 +78,18 @@ public class PlayerController extends InputAdapter{
             brockDialog = false;
         }
         return brockDialog;
+    }
+    public boolean getNPC1Dialog()
+    {
+        return npc1Dialog;
+    }
+    public boolean resetNPC1Dialog()
+    {
+        if (npc1Dialog)
+        {
+            npc1Dialog = false;
+        }
+        return npc1Dialog;
     }
     public boolean getPokemonBattle()
     {

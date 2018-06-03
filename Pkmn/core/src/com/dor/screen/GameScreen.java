@@ -49,6 +49,8 @@ public class GameScreen implements Screen
     Texture brock_img;
     Texture blastew_img;
     Texture poke_grass;
+    Texture borders;
+    Texture npc1;
     private BitmapFont font;
     private Pokemon blastew;
     public Viewport screenPort;
@@ -69,6 +71,8 @@ public class GameScreen implements Screen
         brock_img = new Texture("brock.png");
         blastew_img = new Texture("blastew.png");
         poke_grass = new Texture("poke_grass.png");
+        borders = new Texture("borders.png");
+        npc1 = new Texture("npc1.png");
         map = new TileMap(50, 50);
         player = new Player(map,2, 2);
         brock = new Character(map,3,3);
@@ -113,13 +117,12 @@ public class GameScreen implements Screen
                 batch.draw(img2,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
                 if(j == 35 && i < 20 || j == 35 && i > 30 || j ==  49 || j == 0 || i == 0 || i == 49){
 
-                    batch.draw(tree,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
+                    batch.draw(borders,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 
                 }
                 if(i > 35 && j < 35 && j > 0 && i < 49){
 
                     batch.draw(poke_grass,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
-
                 }
             }
         }
@@ -136,16 +139,26 @@ public class GameScreen implements Screen
         batch.draw(img, startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+player.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 
         batch.draw(brock_img, startingX+brock.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+brock.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
+        batch.draw(npc1, startingX+35 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
         batch.draw(blastew_img, startingX+38 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 
         Gdx.input.setInputProcessor(playerController);
 
         if (playerController.getBrockDialog())
         {
-            font.draw(batch, "Welcome to the world of Pokémon!", startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, 200);
+            font.draw(batch, "Welcome to the world of Pokémon!", startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, 120);
             if (playerController.keyDown(Input.Keys.Z))
             {
                 playerController.resetBrockDialog();
+            }
+        }
+
+        if (playerController.getNPC1Dialog())
+        {
+            font.draw(batch, "Try catching a Pokémon!", startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, 120);
+            if (playerController.keyDown(Input.Keys.Z))
+            {
+                playerController.resetNPC1Dialog();
             }
         }
 
