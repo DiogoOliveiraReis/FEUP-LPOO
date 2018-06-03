@@ -6,12 +6,14 @@ public class Character
     private TileMap map;
     private int x;
     private int y;
+    private char oriention;
 
     public Character(TileMap map, int x, int y)
     {
         this.map = map;
         this.x = x;
         this.y = y;
+        this.oriention = 's';
     }
 
     public boolean move(int dx, int dy)
@@ -45,8 +47,4 @@ public class Character
         this.y = y;
     }
 
-    void getPokemons()
-    {
-
-    }
 }

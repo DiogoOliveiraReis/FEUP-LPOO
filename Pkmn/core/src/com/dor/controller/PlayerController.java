@@ -18,19 +18,19 @@ public class PlayerController extends InputAdapter{
     {
         if (keycode == Input.Keys.UP)
         {
-            player.move(0,1);
+            player.move(1,0);
         }
         if (keycode == Input.Keys.DOWN)
         {
-            player.move(0,-1);
+            player.move(-1,0);
         }
         if (keycode == Input.Keys.RIGHT)
         {
-            player.move(1,0);
+            player.move(0,-1);
         }
         if (keycode == Input.Keys.LEFT)
         {
-            player.move(-1,0);
+            player.move(0,1);
         }
         if (keycode == Input.Keys.Z)
         {
