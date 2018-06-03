@@ -6,24 +6,22 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dor.battle.Battle;
 import com.dor.battle.Move;
 import com.dor.battle.Pokemon;
 import com.dor.controller.PlayerController;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.Color;
 import com.dor.pkmn.Camera;
-
 import com.dor.pkmn.Player;
-import com.dor.pkmn.Settings;
+import com.dor.pkmn.PkmnSettings;
 import com.dor.pkmn.TileMap;
 import com.dor.pkmn.Character;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Pkmn extends ApplicationAdapter
 {
+	/*
 	private TileMap map;
 	private PlayerController playerController;
 	private Player player;
@@ -40,8 +38,8 @@ public class Pkmn extends ApplicationAdapter
 	Texture blastew_img;
 	Texture poke_grass;
 	private BitmapFont font;
-    private Pokemon blastew;
-	
+	private Pokemon blastew;
+
 	@Override
 	public void create ()
 	{
@@ -77,13 +75,10 @@ public class Pkmn extends ApplicationAdapter
 	@Override
 	public void render ()
 	{
-		Random rand = new Random();
-		int appear = rand.nextInt(10);
-
 		camera.update(player.getX()+0.5f,player.getY()+0.5f);
 		batch.begin();
-		float startingX = Gdx.graphics.getWidth()/2 - camera.getCameraX()* Settings.SCALED_TILE_SIZE;
-		float startingY = Gdx.graphics.getHeight()/2 - camera.getCameraY()*Settings.SCALED_TILE_SIZE;
+		float startingX = Gdx.graphics.getWidth()/2 - camera.getCameraX()* PkmnSettings.SCALED_TILE_SIZE;
+		float startingY = Gdx.graphics.getHeight()/2 - camera.getCameraY()* PkmnSettings.SCALED_TILE_SIZE;
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -91,49 +86,39 @@ public class Pkmn extends ApplicationAdapter
 		{
 			for (int j = 0; j < map.getY(); j++)
 			{
-				batch.draw(img2,startingX+i*Settings.SCALED_TILE_SIZE,startingY+j*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
+				batch.draw(img2,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 				if(j == 35 && i < 20 || j == 35 && i > 30 || j ==  49 || j == 0 || i == 0 || i == 49){
 
-					batch.draw(tree,startingX+i*Settings.SCALED_TILE_SIZE,startingY+j*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
+					batch.draw(tree,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 
 				}
 				if(i > 35 && j < 35 && j > 0 && i < 49){
 
-					batch.draw(poke_grass,startingX+i*Settings.SCALED_TILE_SIZE,startingY+j*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
+					batch.draw(poke_grass,startingX+i* PkmnSettings.SCALED_TILE_SIZE,startingY+j* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 
 				}
 			}
 		}
-		batch.draw(tree, startingX+25 *Settings.SCALED_TILE_SIZE,  startingY+25 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(tree, startingX+23 *Settings.SCALED_TILE_SIZE,  startingY+20 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(tree, startingX+38 *Settings.SCALED_TILE_SIZE,  startingY+40 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(house, startingX+15 *Settings.SCALED_TILE_SIZE,  startingY+40 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(house, startingX+35 *Settings.SCALED_TILE_SIZE,  startingY+40 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(house, startingX+12 *Settings.SCALED_TILE_SIZE,  startingY+10 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(house, startingX+20 *Settings.SCALED_TILE_SIZE,  startingY+5 *Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE,Settings.SCALED_TILE_SIZE);
-		batch.draw(img, startingX+player.getX()*Settings.SCALED_TILE_SIZE, startingY+player.getY()*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
-		batch.draw(brock_img, startingX+brock.getX()*Settings.SCALED_TILE_SIZE, startingY+brock.getY()*Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE, Settings.SCALED_TILE_SIZE);
+		batch.draw(tree, startingX+5 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+		batch.draw(tree, startingX+25 * PkmnSettings.SCALED_TILE_SIZE,  startingY+25 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+		batch.draw(tree, startingX+25 * PkmnSettings.SCALED_TILE_SIZE,  startingY+20 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+		batch.draw(tree, startingX+38 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*2, PkmnSettings.SCALED_TILE_SIZE*2);
+		batch.draw(house, startingX+15 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+		batch.draw(house, startingX+35 * PkmnSettings.SCALED_TILE_SIZE,  startingY+40 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+		batch.draw(house, startingX+10 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+		batch.draw(house, startingX+10 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
+		batch.draw(img, startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+player.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
+		batch.draw(brock_img, startingX+brock.getX()* PkmnSettings.SCALED_TILE_SIZE, startingY+brock.getY()* PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
+		batch.draw(blastew_img, startingX+38 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE);
 		Gdx.input.setInputProcessor(playerController);
 		if (playerController.getBrockDialog())
 		{
-			font.draw(batch, "O Brock Fala...", startingX+player.getX()*Settings.SCALED_TILE_SIZE, 200);
+			font.draw(batch, "Welcome to the world of Pokémon!", startingX+player.getX()* PkmnSettings.SCALED_TILE_SIZE, 200);
 			if (playerController.keyDown(Input.Keys.Z))
 			{
 				playerController.resetBrockDialog();
 			}
-		}
-
-
-		if(player.getX() > 35 && player.getY() < 35){
-
-		if(appear < 4){
-
-			Battle bat = new Battle(player, goldrus);
-
-		}
-
-	}
-
+		}		batch.draw(house, startingX+20 * PkmnSettings.SCALED_TILE_SIZE,  startingY+5 * PkmnSettings.SCALED_TILE_SIZE, PkmnSettings.SCALED_TILE_SIZE*3, PkmnSettings.SCALED_TILE_SIZE*3);
 		batch.end();
 	}
 
@@ -143,4 +128,5 @@ public class Pkmn extends ApplicationAdapter
 		batch.dispose();
 		img.dispose();
 	}
+	*/
 }

@@ -3,6 +3,8 @@ package com.dor.pkmn.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.Files;
+import com.dor.screen.Main;
+import com.dor.screen.MenuScreen;
 import com.dor.screen.Pkmn;
 
 public class DesktopLauncher {
@@ -13,6 +15,6 @@ public class DesktopLauncher {
 		config.width = 1280;
 		config.vSyncEnabled = true;
 		config.resizable = false;
-		new LwjglApplication(new Pkmn(), config);
+		new LwjglApplication(new Main(), config);
 	}
 }

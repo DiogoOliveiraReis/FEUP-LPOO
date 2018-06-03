@@ -21,6 +21,5 @@ public class Pokemon
         this.level = 5;
         currentHitpoints = 100;
         this.moves = movs;
-
     }
 }

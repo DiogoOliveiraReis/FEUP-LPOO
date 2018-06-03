@@ -2,7 +2,7 @@ package com.dor.pkmn;
 
 public class Character
 {
-
+    private Character npc;
     private TileMap map;
     private int x;
     private int y;
@@ -18,7 +18,11 @@ public class Character
 
     public boolean move(int dx, int dy)
     {
-        if (x+dx >= map.getX() || x+dx < 0 || y+dy >= map.getY() || y+dy < 0)
+        if (x+dx >= map.getX() || x+dx > 48)
+        {
+            return false;
+        }
+        if (x+dx >= map.getX() || x+dx < 1 || y+dy >= map.getY() || y+dy < 1)
         {
             return false;
         }
@@ -41,10 +45,10 @@ public class Character
     {
         return y;
     }
+
     public void setCharacter(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
-
 }

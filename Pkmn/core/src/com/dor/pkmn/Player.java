@@ -15,25 +15,14 @@ public class Player extends Character {
         pokemons = new ArrayList<Pokemon>(6);
     }
 
-
-
     public void addPokemon(Pokemon p){
-
         if(pokemons.size() < 6){
-
-
             pokemons.add(p);
-
         }
-
         return;
-
     }
 
-
     public ArrayList<Pokemon> getPokemons() {
-
         return pokemons;
-
     }
 }
