@@ -4,9 +4,9 @@ public class Move
 {
     private int damage;
     private String name;
-    public Move()
+    public Move(int dmg, String n)
     {
-        this.damage = damage;
-        this.name = name;
+        this.damage = dmg;
+        this.name = n;
     }
 }
